@@ -27,7 +27,7 @@ class RingBuffer:
             else:
                 next_oldest_node = self.current.next # saving node after the current 
             self.current.value = item # we are overwriting the current value with the new item 
-            self.current = next_oldest_node # the current node is not the next from current 
+            self.current = next_oldest_node # the current node is now the next from current 
 
 
 

@@ -27,23 +27,16 @@ class BinarySearchTree:
 
     # Return True if the tree contains the value
     # False if it does not
-    
-    # *** Plan ***
-    # do an if statment to see if our target is equal to our self.value
-    # if it does then check to see what value it is left or right 
-    # if it's left return Ture 
-    # if it's not left retrun False 
-    # if it's right then return True 
-    # if it's not return false 
     def contains(self, target):
-        if target == self.value: # do an if statment to see if our target is equal to our self.value
-            return True # if it is then we will just return true and the code stops there
-            if not self.left: # if the value is not in the right part of the binarytree 
-                return False # we will return False
+        if self.value == target: # if our value is equal to our arugment
+            return True
+        if target < self.value: # check to see if the target is less then our value
+          if self.left: # check left 
+              return self.left.contains(target) # our node get's recursively called on the left side of the tree beacuse it's smaller then (head/root)
+          else:
+              return False # It's fales beacuse it's bigger then our value (head/root)
+        if target >= self.value: # if the target is grater then 
+            if self.right: # check to see if the target is greater then our value
+                return self.right.contains(target) # our node get's recursively called on the right side of the tree beacuse it's greater then (head/root) 
             else:
-                return self.left.contains(target) # otherwise if not false then we want to return the value recursivly
-        else:
-            if not self.right: # if the value is not in the right part of the binarytree 
-                return False  # we will return False
-            else:
-                return self.right.contains(target) # otherwise if not false then we want to return the value recursivly
+                return False # It's fales beacuse node is smaller then our value (head/root)
