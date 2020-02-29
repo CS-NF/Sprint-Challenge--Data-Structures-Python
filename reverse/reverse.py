@@ -42,6 +42,22 @@ class LinkedList:
     # if we've gotten here, then the target node isn't in our list
     return False
 
+# *** Plan ***
+# creating a variable current_node to head which is our starting point
+# previous is none at the moments meaning we are at the begging of the list
+# make a loop and check if there is a current head if so we do code below
+# we move to the next node so the next node is now the current node
+# the node we moved away from now because the previous node
+# sorting the new linked list
+# our head now beacuse our previous since we iterated from it
+
   def reverse_list(self):
-    # TO BE COMPLETED
-    pass
+    current_node = self.head # creating a variable current_node to head which is our starting point
+    prev = None # previous is none at the moments meaning we are at the begging of the list
+    while current_node is not None: # make a loop and check if there is a current head if so we do code below
+      next_node = current_node.next_node # we move to the next node so the next node is now the current node
+      current_node.next_node = prev # the node we moved away from now because the previous node
+       # sorting
+      prev, current_node = current_node, next_node # sorting the new linked list
+    self.head = prev # our head now beacuse our previous since we iterated from it
+
